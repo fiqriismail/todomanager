@@ -1,0 +1,28 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# ReactJS SPA
+# dependencies
+/src/TodoManager.SPA/node_modules
+/src/TodoManager.SPA/.pnp
+/src/TodoManager.SPA/.pnp.js
+
+# testing
+/src/TodoManager.SPA//coverage
+
+# production
+/src/TodoManager.SPA//build
+
+# misc
+/src/TodoManager.SPA/.DS_Store
+/src/TodoManager.SPA/.env.local
+/src/TodoManager.SPA/.env.development.local
+/src/TodoManager.SPA/.env.test.local
+/src/TodoManager.SPA/.env.production.local
+
+/src/TodoManager.SPA/npm-debug.log*
+/src/TodoManager.SPA/yarn-debug.log*
+/src/TodoManager.SPA/yarn-error.log*
+
+# ASP.NET WEB API
+/src/TodoManager.WEB.API/bin
+/src/TodoManager.WEB.API/obj
