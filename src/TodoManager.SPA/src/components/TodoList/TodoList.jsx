@@ -22,6 +22,14 @@ function TodoList() {
     }
   ]);
 
+  /*
+  useEffect(() => {
+    fetch("http://localhost:3001/links/")
+      .then(response => response.json())
+      .then(data => setData(data));
+  });
+  */
+
   const todoItems = () => {
     return list.map(item => {
       return (
