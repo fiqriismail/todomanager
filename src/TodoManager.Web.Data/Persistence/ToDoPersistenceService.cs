@@ -25,7 +25,20 @@ namespace TodoManager.Web.Data.Persistence
             if(toDo != null)
             {
                 await _context.AddAsync(toDo);
-                await _context.SaveChangesAsync();
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    _logger.LogError("Error saving data", ex);
+                    throw new Exception("Error saving data", ex);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e.Message);
+                    throw;
+                }
             }
         }
 
@@ -65,7 +78,10 @@ namespace TodoManager.Web.Data.Persistence
         public async Task UpDateToDo(ToDo toDo)
         {
             //_context.Update(todo);
-            _context.Entry(toDo).State = EntityState.Modified;
+            ToDo item = await _context.ToDos.FindAsync(toDo.Id);
+            item.Completed = toDo.Completed;
+            item.Status = toDo.Status;
+            //_context.Entry(toDo).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TodoManager.Web.Data.Enums
 {
-    class StatusEnum
+    public class StatusEnum
     {
         public enum Status
         {

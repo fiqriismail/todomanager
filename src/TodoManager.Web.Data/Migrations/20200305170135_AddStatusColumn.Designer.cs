@@ -10,8 +10,8 @@ using TodoManager.Web.Data.Entities;
 namespace TodoManager.Web.Data.Migrations
 {
     [DbContext(typeof(ToDoDbContext))]
-    [Migration("20200304184334_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200305170135_AddStatusColumn")]
+    partial class AddStatusColumn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,17 +28,20 @@ namespace TodoManager.Web.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CompletedDate")
+                    b.Property<DateTime?>("Completed")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DueDate")
+                    b.Property<DateTime>("Due")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime>("Start")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
