@@ -3,11 +3,11 @@ import React from 'react';
 function Dashboard() {
   return (
     <div className="container-fluid mt-4">
-      <h4 className="mb-4">Dashboard</h4>
       <div className="container">
+        <h4 className="mb-4">Dashboard</h4>
         <div className="row">
           <div className="col-sm-3">
-            <div className="card border border-primary">
+            <div className="card border border-primary shadow-sm">
               <div className="card-header">New</div>
               <div className="card-body">
                 <h5 className="card-title">10 in the queue</h5>

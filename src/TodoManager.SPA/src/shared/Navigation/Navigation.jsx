@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 function Navigation() {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <span class="navbar-brand mb-0 h1">Navbar</span>
+      <span class="navbar-brand mb-0 h1">Todo Manager</span>
       <button
         class="navbar-toggler"
         type="button"
@@ -18,19 +20,19 @@ function Navigation() {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <Link className="nav-link" to="/">
               Dashboard
-            </a>
+            </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              Work to be done
-            </a>
+            <Link className="nav-link" to="/new">
+              Create Todo
+            </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              Completed
-            </a>
+            <Link className="nav-link" to="/todos">
+              To do List
+            </Link>
           </li>
         </ul>
       </div>
