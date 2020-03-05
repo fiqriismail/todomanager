@@ -4,9 +4,9 @@ import TodoItem from './TodoItem';
 
 function TodoList() {
   return (
-    <div className="container-fluid">
-      <h4>Todo List</h4>
+    <div className="container-fluid mt-4">
       <div className="container">
+        <h4 className="mb-4">Todo List</h4>
         <table className="table shadow-sm border">
           <thead>
             <tr>
