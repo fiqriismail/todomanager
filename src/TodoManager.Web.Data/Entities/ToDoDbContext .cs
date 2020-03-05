@@ -19,5 +19,10 @@ namespace TodoManager.Web.Data.Entities
         public DbSet<ToDo> ToDos { get; set; }
         public DbSet<User> Users { get; set; }
 
+        public void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasData(new User { Id = 1, FirstName = "Hansamali", LastName = "Gamage" });
+        }
+
     }
 }

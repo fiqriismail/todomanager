@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TodoManager.Web.Data.Enums;
+using static TodoManager.Web.Data.Enums.StatusEnum;
 
 namespace TodoManager.Web.Data.Entities
 {
@@ -13,14 +15,16 @@ namespace TodoManager.Web.Data.Entities
         public string Title { get; set; }
         [JsonProperty("description")]
         public string Description { get; set; }
-        [JsonProperty("startDate")]
-        public DateTime StartDate { get; set; }
-        [JsonProperty("dueDate")]
-        public DateTime DueDate { get; set; }
-        [JsonProperty("completedDate")]
-        public DateTime CompletedDate { get; set; }
+        [JsonProperty("start")]
+        public DateTime Start { get; set; }
+        [JsonProperty("due")]
+        public DateTime Due { get; set; }
+        [JsonProperty("completed")]
+        public DateTime? Completed { get; set; }
         [JsonProperty("userId")]
         public int UserId { get; set; }
+        [JsonProperty("status")]
+        public Status Status { get; set; }
         public virtual User User { get; set; }
     }
 }
