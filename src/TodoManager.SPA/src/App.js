@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Navigation from './shared/Navigation/Navigation';
+import Dashboard from './components/Dashboard/Dashboard';
+import TodoList from './components/TodoList/TodoList';
+import TodoForm from './components/TodoForm/TodoForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navigation />
+      <Dashboard />
+      <TodoList />
+      <TodoForm />
     </div>
   );
 }
