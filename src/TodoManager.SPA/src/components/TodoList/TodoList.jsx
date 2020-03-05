@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import TodoItem from './TodoItem';
 
 function TodoList() {
+  const [list, setList] = useState([
+    {
+      id: 1,
+      title: 'Todo title 1',
+      description: 'The quick brown fox 1',
+      start: '06-03-2020',
+      due: '08-03-2020',
+      status: 0
+    },
+    {
+      id: 2,
+      title: 'Todo title 2',
+      description: 'The quick brown fox 2',
+      start: '06-03-2020',
+      due: '08-03-2020',
+      status: 1
+    }
+  ]);
+
+  const todoItems = () => {
+    return list.map(item => {
+      return (
+        <TodoItem
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          description={item.description}
+          start={item.start}
+          due={item.due}
+          status={item.status}
+        />
+      );
+    });
+  };
+
   return (
     <div className="container-fluid mt-4">
       <div className="container">
@@ -17,24 +52,7 @@ function TodoList() {
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
-            <TodoItem
-              id="1"
-              title="Title of the item"
-              description="The quick brown fox jumped over the lazy dog"
-              start="06-03-2020"
-              due="06-03-2020"
-              status="Cancelled"
-            />
-            <TodoItem
-              id="2"
-              title="Title of the item"
-              description="The quick brown fox jumped over the lazy dog"
-              start="06-03-2020"
-              due="06-03-2020"
-              status="In Progress"
-            />
-          </tbody>
+          <tbody>{todoItems()}</tbody>
         </table>
       </div>
     </div>
