@@ -1,5 +1,7 @@
 import React from 'react';
 
+import StatusToggle from './StatusToggle';
+
 function TodoItem(props) {
   const getStatus = status => {
     const statuses = ['New', 'In Progress', 'Completed', 'Cancelled'];
@@ -23,7 +25,9 @@ function TodoItem(props) {
     return 'btn btn-primary';
   };
 
-  const statusStyle = `badge badge-${style(props.status)} w-75 p-1`;
+  const toggleButtonStyle = `btn btn-${style(
+    props.status
+  )} dropdown-toggle btn-sm w-75 `;
 
   console.log(props.status);
 
@@ -41,7 +45,11 @@ function TodoItem(props) {
       <td>{props.start}</td>
       <td>{props.due}</td>
       <td>
-        <div className={statusStyle}>{getStatus(props.status)}</div>
+        <StatusToggle
+          statusText={getStatus(props.status)}
+          toggleStyle={toggleButtonStyle}
+          id={props.id}
+        />
       </td>
     </tr>
   );
