@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import TodoItem from './TodoItem';
 
@@ -22,13 +22,11 @@ function TodoList() {
     }
   ]);
 
-  /*
   useEffect(() => {
-    fetch("http://localhost:3001/links/")
+    fetch('https://todomanagerwebapi.azurewebsites.net/api/todo')
       .then(response => response.json())
-      .then(data => setData(data));
-  });
-  */
+      .then(data => setList(data.value));
+  }, []);
 
   const todoItems = () => {
     return list.map(item => {
