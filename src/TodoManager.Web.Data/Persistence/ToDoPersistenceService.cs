@@ -14,6 +14,11 @@ namespace TodoManager.Web.Data.Persistence
         private readonly ToDoDbContext _context;
         private readonly ILogger _logger;
 
+        public ToDoPersistenceService()
+        {
+
+        }
+
         public ToDoPersistenceService(ToDoDbContext context, ILogger<ToDoPersistenceService> logger)
         {
             _context = context;

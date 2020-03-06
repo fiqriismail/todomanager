@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TodoManager.Web.Data;
 using TodoManager.Web.Data.Entities;
 using TodoManager.Web.Data.Persistence;
 
@@ -28,11 +29,11 @@ namespace TodoManager.Web.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddCors();
+            services.AddCors();
 
             services.AddDbContext<ToDoDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ToDoDbContext")));
-            services.AddControllers();
             services.AddScoped<IToDoPersistenceService, ToDoPersistenceService>();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +51,7 @@ namespace TodoManager.Web.API
 
             app.UseRouting();
 
-            //app.UseCors();
+            app.UseCors();
 
             app.UseAuthorization();
 
@@ -59,7 +60,8 @@ namespace TodoManager.Web.API
                 endpoints.MapControllers();
             });
 
-            context.Database.Migrate();
+            //context.Database.Migrate();
+            //DbInitializer.Initialize(context);
         }
     }
 }

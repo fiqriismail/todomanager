@@ -10,8 +10,8 @@ using TodoManager.Web.Data.Entities;
 namespace TodoManager.Web.Data.Migrations
 {
     [DbContext(typeof(ToDoDbContext))]
-    [Migration("20200305170135_AddStatusColumn")]
-    partial class AddStatusColumn
+    [Migration("20200305181254_initialcreate")]
+    partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
